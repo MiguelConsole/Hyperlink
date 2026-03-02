@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+	<meta name="timer" content="width=device-width, initial-scale=1">
+		<style>
+		p {
+		text-align: center;
+		font-size: 60px;
+		margin-top: 0px;
+		}
+		</style>
+</head>
+<html>
+	<center>
+
+	<h1>Index</h1>
+	<p>The start</p>
+
+	</center>
+
+	<body>
+		<div id="timer">
+				<script>
+			window.onload = function() {
+			var incrementSecond = function () {
+				window.secondsPassed += 1;
+				console.log('+1 sec, now we have', window.secondsPassed);
+			}
+
+			window.secondsPassed = 0;
+			window.myTimer = setInterval(incrementSecond, 1000);
+			}
+			var onSubmitClick = function() {
+			window.clearInterval(window.myTimer); // always clean resources
+			// call some other function to do the submit
+			}
+			</script>
+
+			<input type="submit" onClick="onSubmitClick"/>
+		</div>
+	</body>
+</html>

@@ -18,24 +18,8 @@
 	</center>
 
 	<body>
-		<div id="timer">
-				<script>
-			window.onload = function() {
-			var incrementSecond = function () {
-				window.secondsPassed += 1;
-				console.log('+1 sec, now we have', window.secondsPassed);
-			}
-
-			window.secondsPassed = 0;
-			window.myTimer = setInterval(incrementSecond, 1000);
-			}
-			var onSubmitClick = function() {
-			window.clearInterval(window.myTimer); // always clean resources
-			// call some other function to do the submit
-			}
-			</script>
-
-			<input type="submit" onClick="onSubmitClick"/>
+		
+			<input type="submit" onClick= "location.href = '/Hypertext/quick_time/timer.html'"> <p>Minigame</p>
 		</div>
 	</body>
 </html>

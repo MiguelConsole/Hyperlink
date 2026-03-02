@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<script type="text/javascript">
+    var previous;
+    function unhide(divID) {
+        var item = document.getElementById(divID);
+
+        if (previous != null)
+            previous.className='hidden';
+
+        if (item) {
+            item.className=(item.className=='hidden')?'unhidden':'hidden';
+            previous = item;
+        }
+    }
+</script>
+
+<p><a href="javascript:unhide('q1');">Here is my Question???</a></p>
+
+<div id="q1" class="hidden">
+<p>The Answer goes here.</p>
+</div>
+
+<p><a href="javascript:unhide('q2');">Here is my 2nd Question???</a></p>
+
+<div id="q2" class="hidden">
+<p>The 2nd Answer goes here.</p>
+</div>

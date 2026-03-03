@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<body style="background-color:#F7E7CE;text-align:center;"> </body>
+<style>
+.hidden {
+    display: none;
+}
+</style>
+<body>
+	<p>You understand the assignment?</p>
+</body>
+<script type="text/javascript">
+    var previous;
+    function unhide(divID) {
+        var item = document.getElementById(divID);
+
+        if (previous != null)
+            previous.className='hidden';
+
+        if (item) {
+            item.className=(item.className=='hidden')?'unhidden':'hidden';
+            previous = item;
+        }
+    }
+</script>
+
+<p><a href="javascript:unhide('q1');" class="bruh">Yes</a></p>
+
+<div id="q1" class="hidden">
+<li><a href="Result_Yes.html" class="link">Confirm?</a></li>
+</div>
+
+<p><a href="javascript:unhide('q2');" class="bruh">No</a></p>
+
+<div id="q2" class="hidden">
+<li><a href="Result.No.html" class="link">Confirm?</a></li>
+</div>
+
+<style>
+				a {
+					text-decoration: none;
+					cursor: pointer
+				}
+				a:hover {
+					color:red;
+					background-color: #cbefe3c4
+				}
+				.bruh {
+				font: bold 20px Arial;
+				text-decoration: none;
+				background-color: #EEEEEE;
+				color: #333333;
+				padding: 2px 6px 2px 6px;
+				border-top: 3px solid #CCCCCC;
+				border-right: 3px solid #333333;
+				border-bottom: 3px solid #333333;
+				border-left: 3px solid #CCCCCC;
+				} 
+				
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>QuickTime</title>
+  </head>
+  <body>
+
+	<p id="counterDisplay01"></p>
+
+
+	<script>
+
+	// ----------------------------
+	class Countdown {
+		constructor(startingNumber, element) {
+			this.number = startingNumber;
+			this.initialCount = startingNumber;
+			this.timer = null;
+			this.element = element;
+			this.isPaused = false;
+		}
+		startCountdown() {
+			this.timer = setInterval(() => {
+				if (!this.isPaused) {
+					this.number--;
+					console.log(this.number);
+				}
+				this.displayCountdown();
+				if (this.number === 0) {
+					clearInterval(this.timer);
+					this.element.textContent = "Countdown finished!";
+					// Hide everything in the body except the element with id 'keepVisible'
+					const keep = document.getElementById('keepVisible');
+					const elems = document.body.querySelectorAll('*');
+					elems.forEach(el => {
+						if (keep && (el === keep || el.contains(keep))) return;
+						el.classList.add('hidden');
+					});
+					
+					const lost = document.getElementById('Fuck');
+					if (lost) lost.classList.remove('hidden');
+				}
+			}, 1000);
+		}
+		displayCountdown() {
+			this.element.textContent = this.number;
+	
+		}
+		pause() {
+			this.isPaused = true;
+		}
+		resume() {
+			this.isPaused = false;
+		}
+
+		restart() {
+			console.log("Reached restart()");
+			this.number = this.initialCount;
+			this.isPaused = false;
+			clearInterval(this.timer);
+			// Unhide all elements that were hidden, then restart the countdown
+			document.querySelectorAll('.hidden').forEach(el => el.classList.remove('hidden'));
+			this.startCountdown();
+		}
+	}
+	// ----------------------------
+
+	const counterDisplay01 = document.getElementById('counterDisplay01');
+
+	const counter01 = new Countdown (16, counterDisplay01);
+
+	counter01.startCountdown();
+
+	</script>
+
+  </body>
+	<body>
+	<p id="unhidden">CHOOSE SOMETHING!!!</p>
+		 <a href="YoAssToSlow.html" id="Fuck" class="hidden" class="bruh">Slow ass mf!</a>
+    <style>
+        body {
+        text-align: center;
+		font-size: 60px;
+		margin-top: 0px;
+        }
+
+    </style>
+	</body>
+    <script>
+	(function(){
+		const target = document.getElementById('counterDisplay01');
+		const lost = document.getElementById('Fuck');
+		if (!target || !lost) return;
+		const obs = new MutationObserver(() => {
+			if (target.textContent && target.textContent.toString().includes('Countdown finished')) {
+				lost.classList.remove('hidden');
+				obs.disconnect();
+			}
+		});
+		obs.observe(target, { childList: true, characterData: true, subtree: true });
+	})();
+	</script>
+</html>

@@ -21,24 +21,28 @@
     }
 </script>
 
-<p><a href="javascript:unhide('q1');">Here is my Question???</a></p>
+<p><a href="javascript:unhide('q1');" class="bruh">Here is my Question???</a></p>
 
 <div id="q1" class="hidden">
 <p>The Answer goes here.</p>
 </div>
 
-<p><a href="javascript:unhide('q2');">Here is my 2nd Question???</a></p>
+<p><a href="javascript:unhide('q2');" class="bruh">Here is my 2nd Question???</a></p>
 
 <div id="q2" class="hidden">
 <p>The 2nd Answer goes here.</p>
 </div>
 
 <style>
-	hover {
-		color:red;
-		background-color: #cbefe3c4
-	}
-	href {
+				a {
+					text-decoration: none;
+					cursor: pointer
+				}
+				a:hover {
+					color:red;
+					background-color: #cbefe3c4
+				}
+				.bruh .hidden {
 				font: bold 20px Arial;
 				text-decoration: none;
 				background-color: #EEEEEE;
